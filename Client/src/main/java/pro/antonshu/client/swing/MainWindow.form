@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="pro.antonshu.client.swing.MainWindow">
+  <grid id="27dc6" binding="jointPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="c1087" binding="serverPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="West"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="4c6fc" binding="buttonsPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="South"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="16c8b" class="javax.swing.JButton" binding="refreshButton">
+                <constraints border-constraint="West"/>
+                <properties>
+                  <text value="Обновить"/>
+                </properties>
+              </component>
+              <component id="874bb" class="javax.swing.JButton" binding="downloadButton">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <text value="Скачать"/>
+                </properties>
+              </component>
+              <component id="d4afa" class="javax.swing.JButton" binding="sendButton">
+                <constraints border-constraint="East"/>
+                <properties>
+                  <text value="Отправить"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="41cef" class="javax.swing.JList" binding="serverFileList">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <model/>
+            </properties>
+            <clientProperties>
+              <List.isFileList class="java.lang.Boolean" value="false"/>
+            </clientProperties>
+          </component>
+          <grid id="7bd5f" binding="serverNorthPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="North"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="7d500" class="javax.swing.JLabel" binding="frameName">
+                <constraints border-constraint="North"/>
+                <properties>
+                  <text value="Облачное хранилище"/>
+                </properties>
+              </component>
+              <component id="411b8" class="javax.swing.JTextField" binding="severTextField">
+                <constraints border-constraint="South"/>
+                <properties>
+                  <toolTipText value="Введите имя файла"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="430db" binding="clientPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="East"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="bff1c" binding="clientButtonsPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="South"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="39b63" class="javax.swing.JButton" binding="clientRefreshButton">
+                <constraints border-constraint="West"/>
+                <properties>
+                  <text value="Обновить"/>
+                </properties>
+              </component>
+              <component id="a84f1" class="javax.swing.JButton" binding="clientDownloadButton">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <text value="Скачать"/>
+                </properties>
+              </component>
+              <component id="8d951" class="javax.swing.JButton" binding="clientSendButton">
+                <constraints border-constraint="East"/>
+                <properties>
+                  <text value="Отправить"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <component id="df3c4" class="javax.swing.JList" binding="clientFileList" custom-create="true">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <dragEnabled value="true"/>
+              <selectionMode value="0"/>
+            </properties>
+            <clientProperties>
+              <List.isFileList class="java.lang.Boolean" value="true"/>
+              <html.disable class="java.lang.Boolean" value="false"/>
+            </clientProperties>
+          </component>
+          <grid id="5621d" binding="clientNorthPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="North"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="d6e0a" class="javax.swing.JLabel" binding="clientLabel">
+                <constraints border-constraint="North"/>
+                <properties>
+                  <text value="Локальное хранилище"/>
+                </properties>
+              </component>
+              <component id="d3815" class="javax.swing.JTextField" binding="clientTextField">
+                <constraints border-constraint="South"/>
+                <properties>
+                  <text value=""/>
+                  <toolTipText value="Введите имя файла"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
