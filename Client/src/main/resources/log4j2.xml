@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" strict="true" name="XMLConfigTest"
+               packages="org.apache.logging.log4j.test">
+    <Properties>
+        <Property name="filename">target/client.log</Property>
+    </Properties>
+    <Filter type="ThresholdFilter" level="info"/>
+
+    <Appenders>
+        <Appender type="Console" name="STDOUT">
+            <Layout type="PatternLayout" pattern="%m%n"/>
+            <Filters>
+                <Filter type="MarkerFilter" marker="FLOW" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <Filter type="MarkerFilter" marker="EXCEPTION" onMatch="DENY" onMismatch="ACCEPT"/>
+            </Filters>
+        </Appender>
+        <Appender type="Console" name="FLOW">
+            <Layout type="PatternLayout" pattern="%C{1}.%M %m %ex%n"/><!-- class and line number -->
+            <Filters>
+                <Filter type="MarkerFilter" marker="FLOW" onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+                <Filter type="MarkerFilter" marker="EXCEPTION" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </Appender>
+        <Appender type="File" name="File" fileName="${filename}">
+            <Layout type="PatternLayout">
+                <Pattern>%d %p %C{1.} [%t] %m%n</Pattern>
+            </Layout>
+        </Appender>
+        <JDBC name="DBAppender" tableName="cloudstorage.cloudserverlog">
+            <ConnectionFactory
+                    class="pro.antonshu.net.ConnectionFactory" method="getConnection" />
+            <Column name="EVENT_DATE" isEventTimestamp="true" />
+            <Column name="LEVEL" pattern="%level" />
+            <Column name="LOGGER" pattern="%logger" />
+            <Column name="MESSAGE" pattern="%message" />
+            <Column name="THROWABLE" pattern="%ex{full}" />
+        </JDBC>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="org.apache.logging.log4j.test1" level="debug" additivity="false">
+            <Filter type="ThreadContextMapFilter">
+                <KeyValuePair key="test" value="123"/>
+            </Filter>
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+
+        <Logger name="org.apache.logging.log4j.test2" level="debug" additivity="false">
+            <AppenderRef ref="File"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+            <AppenderRef ref="File"/>
+<!--            <AppenderRef ref="DBAppender"/>-->
+        </Root>
+    </Loggers>
+
+</Configuration>
